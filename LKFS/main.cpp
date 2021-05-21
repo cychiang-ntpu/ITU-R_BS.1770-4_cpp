@@ -74,14 +74,14 @@ int main() {
     
     double loudness = 0.0;
     
-    time_t begin, end;
-    time(&begin);
+    time_t start, end;
+    time(&start);
     
     loudness = integrated_loudness(wavein, wavein.header.get_SampleRate());
     cout << "Loudness : " << setprecision(17) << loudness << endl;
     
     time(&end);
-    cout << "(spent " << double(end-begin) << " seconds to compute)" << endl;
+    cout << "(spent " << double(end-start) << " seconds to compute)" << endl;
     
     //peak_normalize(wavein, waveout, -12.0);
     loudness_normalize(wavein, waveout, -12.0, loudness);
